@@ -1,0 +1,27 @@
+From 71e2d87d91ce3fab33c68f5754706b5b7cba7fc1 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sat, 7 Sep 2024 18:26:55 +0800
+Subject: [PATCH] install
+
+---
+ Serial-Studio.pro | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/Serial-Studio.pro b/Serial-Studio.pro
+index 49cbb6e..27d9e4e 100644
+--- a/Serial-Studio.pro
++++ b/Serial-Studio.pro
+@@ -285,3 +285,9 @@ OTHER_FILES += \
+     deploy/windows/resources/* \
+     .github/workflows/*.yml \
+     updates.json
++desktop.files = deploy/linux/serial-studio.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = deploy/linux/serial-studio.png
++
++INSTALLS += desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+

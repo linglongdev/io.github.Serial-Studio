@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.Serial-Studio
+  name: Serial-Studio
+  version: 2.0.0.0
+  kind: app
+  description: |
+    Multi-purpose serial data visualization & processing program
+
+command:
+  - /opt/apps/io.github.Serial-Studio/files/bin/serial-studio
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/Serial-Studio/Serial-Studio.git
+    version: master
+    commit: afd911f3e0cbf1fa63826e99f0ddd004f6085e18
+
+build: |
+  cd /project/linglong/sources/Serial-Studio.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
